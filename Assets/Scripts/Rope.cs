@@ -18,7 +18,7 @@ public class Rope : MonoBehaviour {
 	void Update () {
         Laser[] lasers = GameObject.FindObjectsOfType<Laser>();
         foreach (Laser laser in lasers) {
-            if (laser == this.laser) continue;
+            if (laser.GetComponent<Rope>() != null) continue;
             LineRenderer other = laser.GetComponent<LineRenderer>();
 
             Vector3 a = laser.other.position - other.transform.position;

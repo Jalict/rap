@@ -15,9 +15,12 @@ public class Laser : MonoBehaviour {
             line.SetPosition(1, other.position);
         }
 	}
-	
-	void Update () {
-	    
+
+    void Update() {
+        if (other != null) {
+            line.SetPosition(0, transform.position);
+            line.SetPosition(1, other.position);
+        }
 	}
 
     void OnDrawGizmos() {
