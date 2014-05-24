@@ -8,10 +8,12 @@ public class SpawnLaser : MonoBehaviour {
         GameObject one = new GameObject();
         GameObject two = new GameObject();
         RaycastHit hit;
-        while (!Physics.Raycast(transform.position, Random.rotation.eulerAngles, out hit)) {
+		Vector3 dir = Random.rotation.eulerAngles;
+		dir.y = 0;
+        if (!Physics.Raycast(transform.position, dir, out hit)) {
         }
         one.transform.position = hit.point;
-        while (!Physics.Raycast(transform.position, Random.rotation.eulerAngles, out hit)) {
+        if (!Physics.Raycast(transform.position, -dir, out hit)) {
         }
         two.transform.position = hit.point;
         one.AddComponent<Laser>();

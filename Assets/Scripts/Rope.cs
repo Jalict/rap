@@ -38,6 +38,6 @@ public class Rope : MonoBehaviour {
 	}
 
     void OnGUI() {
-        if(lost)GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "YOU GOT CAUGHT..");
+        //if(lost)GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "YOU GOT CAUGHT..");
     }
 }

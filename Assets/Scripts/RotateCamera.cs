@@ -13,6 +13,6 @@ public class RotateCamera : MonoBehaviour {
 	void Update () {
 		transform.RotateAround (player.position, Vector3.up, Input.GetAxis ("Horizontal"));
 		transform.LookAt (player.position);
-		transform.position = new Vector3 (transform.position.x, player.position.y, transform.position.z);
+		transform.position = Vector3.Lerp(transform.position,new Vector3 (transform.position.x, player.position.y+3, transform.position.z),0.4f);
 	}
 }
