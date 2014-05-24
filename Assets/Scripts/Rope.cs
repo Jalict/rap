@@ -8,6 +8,7 @@ public class Rope : MonoBehaviour {
     private Laser laser;
     private LineRenderer line;
     private Dictionary<Laser, float> predists;
+    private bool lost;
 
 	void Start () {
         laser = GetComponent<Laser>();
@@ -28,11 +29,15 @@ public class Rope : MonoBehaviour {
 
             if (predists.ContainsKey(laser)) {
                 if (Mathf.Sign(predists[laser]) != Mathf.Sign(dist)) {
-                    Debug.Log("YOU LOSE");
+                    lost = true;
                 }
             }
 
             predists[laser] = dist;
         }
 	}
+
+    void OnGUI() {
+        if(lost)GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "YOU GOT CAUGHT..");
+    }
 }
